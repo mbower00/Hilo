@@ -4,7 +4,7 @@ program.cs
 Director.cs
 Card.cs
 
-FROM GOOGLE DOC:
+DOC:
 
 Appendix: Designing Together
 Hilo Specification
@@ -15,38 +15,38 @@ https://discord.gg/htj2yhe2
 
 Object: Director
 Responsibility
-Directing the game, and displaying the game
+Directing the game, and displaying the game, and holding score
 Behaviors
-Starts game
-Does updates (Receive user input)
-Does outputs (Displays information and announces the card)
-State
-Game continue? [y/n]
-Guess next card [h/l]
+-Starts game
+-Does updates (Receive user input)
+-Does outputs (Displays information and announces the card)
+-State
+-Game continue? [y/n]
+-Guess next card [h/l]
 
 Class Director
-DoUpdate(): void
-StartGame(): void
-GetGuess(): void
-GetPlayAgain(): bool
-DoOutput(): void
-HasLoser(): bool
+-DoUpdate(): void
+-StartGame(): void
+-GetGuess(): void
+-GetPlayAgain(): bool
+-DoOutput(): void
+-HasLoser(): bool
 
 
 
 
 Object: Card
 Responsibility:
-Keep track of players score, and card value
+modifies player's score, and card value
 Behaviors:
-Picks random card value
-Determine score
-Determine if higher or lower
+-Picks random card value
+-Determine score
+-Determine if higher or lower
 State:
-Current Card Number
-Next card number
+-first Card Number
+-second card number
 
 Class: Card
-DrawCard(): int
-CorrectGuess(): bool
-GetScore(): int
+-DrawCard(): int
+-CorrectGuess(): bool
+-GetScore(): int
