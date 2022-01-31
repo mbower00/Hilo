@@ -1,6 +1,6 @@
 using System;
 
-namespace cse210_hilo.Game
+namespace Unit02.Game
 {
     
     /// <summary> 
@@ -27,7 +27,7 @@ namespace cse210_hilo.Game
         {
             while(isPlaying)
             {
-                Card card = new Card();
+                //Card card = new Card();
                 DoOutput();
                 DoUpdate();
                 if (HasLoser())
@@ -70,9 +70,9 @@ namespace cse210_hilo.Game
                 return;
             }
 
-            Console.WriteLine($"The first card is: {card.firstCard}");
+            //Console.WriteLine($"The first card is: {card.firstCard}");
             GetGuess();
-            Console.WriteLine($"The next card was: {card.secondCard}");
+            //Console.WriteLine($"The next card was: {card.secondCard}");
 
         }
         
@@ -81,10 +81,10 @@ namespace cse210_hilo.Game
         /// </summary>
         public bool HasLoser()
         {
-            if (card.GetScore() <= 0)
-            {
-                return true;
-            }
+            // if (card.GetScore() <= 0)
+            // {
+                 return true;
+            // }
         }
         
         /// <summary> 
@@ -93,7 +93,7 @@ namespace cse210_hilo.Game
         public void DoUpdate()
         {
             
-            Console.WriteLine($"Your new score is: {card.GetScore()} ");
+            //Console.WriteLine($"Your new score is: {card.GetScore()} ");
         }
     }
 

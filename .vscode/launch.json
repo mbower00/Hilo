@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Unit02 (Hilo)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-hilo",
+            "program": "${workspaceFolder}/bin/Debug/net6.0/cse210_hilo.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "stopAtEntry": false
+        }
+    ]
+}

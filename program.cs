@@ -1,7 +1,7 @@
-using cse210_hilo.Game;
+﻿using Unit02.Game;
 
 
-namespace cse210_hilo
+namespace Unit02
 {
     /// <summary>
     /// The program's entry point.
