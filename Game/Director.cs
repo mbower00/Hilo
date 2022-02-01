@@ -1,6 +1,6 @@
 using System;
 
-namespace Unit02.Game
+namespace cse210_hilo.Game
 {
     
     /// <summary> 
@@ -12,11 +12,12 @@ namespace Unit02.Game
         string gameContinue = "y";
         string guessNextCard = "";
         int score;
+        Card card = new Card();
         
         
         public Director()
         {
-            int score = 300;
+
         }
 
 
@@ -25,9 +26,10 @@ namespace Unit02.Game
         /// </summary>
         public void StartGame()
         {
+            score = 300;
             while(isPlaying)
             {
-                //Card card = new Card();
+                card.DrawCard();
                 DoOutput();
                 DoUpdate();
                 if (HasLoser())
@@ -36,32 +38,32 @@ namespace Unit02.Game
                     return;
                 }
                 GetPlayAgain();
-                
             }
         }
         
         /// <summary> 
-        ///
+        /// Asks user for their guess for the next card
         /// </summary>
         public void GetGuess()
         {
             Console.Write("Do you want to guess higher or lower? [h/l] ");
-            string guess = Console.ReadLine();
+            guessNextCard = Console.ReadLine();
         }
         
         /// <summary> 
-        ///
+        /// Asks user if they want to play again
         /// </summary>
         public void GetPlayAgain()
         {
             Console.Write("Do you want to play again? [y/n]");
             string keepPlaying = Console.ReadLine();
             isPlaying = (keepPlaying == "y");
+            Console.WriteLine("");
 
         }
         
         /// <summary> 
-        ///
+        /// Shows user the cards that were drawn and calls GetGuess() method
         /// </summary>
         public void DoOutput()
         {
@@ -70,9 +72,9 @@ namespace Unit02.Game
                 return;
             }
 
-            //Console.WriteLine($"The first card is: {card.firstCard}");
+            Console.WriteLine($"The first card is: {card.firstCard}");
             GetGuess();
-            //Console.WriteLine($"The next card was: {card.secondCard}");
+            Console.WriteLine($"The next card was: {card.secondCard}");
 
         }
         
@@ -81,20 +83,33 @@ namespace Unit02.Game
         /// </summary>
         public bool HasLoser()
         {
-            // if (card.GetScore() <= 0)
-            // {
-                 return true;
-            // }
+            if (score <= 0)
+            {
+                return true;
+            }
+            else{
+                return false;
+            }
         }
         
         /// <summary> 
-        /// updates and
+        /// updates score and displays new score
         /// </summary>
         public void DoUpdate()
         {
-            
-            //Console.WriteLine($"Your new score is: {card.GetScore()} ");
+            if (card.firstCard < card.secondCard && guessNextCard == "h" || card.firstCard > card.secondCard && guessNextCard == "l"){
+                score += 100;
+            }
+            else if (card.firstCard == card.secondCard){  //CONSIDER CHANGING ACCORDING TO SAME CARD RULES
+                score += 0;
+            }
+            else{
+                score -= 75;
+            }
+            Console.WriteLine($"Your new score is: {score} ");
         }
+
+        
     }
 
 
