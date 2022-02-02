@@ -18,7 +18,7 @@ Responsibility
 Directing the game, and displaying the game, keeping/changing score
 Behaviors
 -Starts game
--Does updates (Receive user input)
+-Does updates (Receive user input, update score)
 -Does outputs (Displays information and announces the card)
 State
 -Game continue? [y/n]
@@ -30,7 +30,7 @@ Class Director
 -DoUpdate(): void
 -StartGame(): void
 -GetGuess(): void
--GetPlayAgain(): bool
+-GetPlayAgain(): void
 -DoOutput(): void
 -HasLoser(): bool
 
@@ -39,9 +39,10 @@ Class Director
 
 Object: Card
 Responsibility:
-keeps track of cards
+keeps track of cards, drawing a new card
 Behaviors:
 -Picks random card value
+-keeps track of fist and second card
 State:
 -first Card Number
 -second card number

@@ -4,7 +4,7 @@ namespace cse210_hilo.Game
 {
     
     /// <summary> 
-    /// Directing the game, and displaying the game, and holding score
+    /// Responsibilities: Directing the game, and displaying the game, keeping/changing score
     /// </summary>
     public class Director
     {
@@ -33,23 +33,23 @@ namespace cse210_hilo.Game
             {
                 card.DrawCard();        // move second card value to first and draw a new card for second
                 DoOutput();             // print the first card, gets guess from user, prints the second card
-                DoUpdate();             //
-                if (HasLoser())
+                DoUpdate();             // updates score, displays the gain/loss, and displays new score
+                if (HasLoser())         // if the score hits 0 or lower, end game
                 {
                     isPlaying = false;
                     return;
                 }
-                GetPlayAgain();
+                GetPlayAgain();         // asks if they want to play again
             }
         }
         
         /// <summary> 
-        /// Asks user for their guess for the next card
+        /// Asks user for their guess for the next card, and assigns it to guessNextCard
         /// </summary>
         public void GetGuess()
         {
-            Console.Write("Do you want to guess higher or lower? [h/l] ");
-            guessNextCard = Console.ReadLine();
+                Console.Write("Do you want to guess higher or lower? [h/l] "); // prompts the user for a guess
+                guessNextCard = Console.ReadLine(); //gets input and applys it to guessNextCard
         }
         
         /// <summary> 
@@ -58,10 +58,9 @@ namespace cse210_hilo.Game
         public void GetPlayAgain()
         {
             Console.Write("Do you want to play again? [y/n] "); //print play again prompt
-            string keepPlaying = Console.ReadLine(); // 
+            string keepPlaying = Console.ReadLine(); // gets input and applys it to keepPlaying
             isPlaying = (keepPlaying == "y");
-            Console.WriteLine("");
-
+            Console.WriteLine(""); // print blank line
         }
         
         /// <summary> 
@@ -80,9 +79,10 @@ namespace cse210_hilo.Game
 
         }
         
-        /// <summary> 
-        /// checks if the player has lost (i.e. he/she has no points left)
+        /// <summary>
+        /// Checks if the player has lost (i.e. he/she has no points left)
         /// </summary>
+        /// <returns>bool: true, if the player is a loser. false, if the player is not a loser.</returns>
         public bool HasLoser()
         {
             if (score <= 0) // there is a loser if the socre if less than or equal to zero
@@ -95,7 +95,7 @@ namespace cse210_hilo.Game
         }
         
         /// <summary> 
-        /// updates score, display  and displays new score
+        /// updates score, displays the gain/loss, and displays new score
         /// </summary>
         public void DoUpdate()
         {

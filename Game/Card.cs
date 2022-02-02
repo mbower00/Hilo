@@ -2,6 +2,9 @@ using System;
 
 namespace cse210_hilo.Game{
     
+    /// <summary>
+    /// Responsibilities: keeps track of cards, drawing a new card
+    /// </summary>
     public class Card{
         // Director director = new Director();
 
@@ -9,6 +12,10 @@ namespace cse210_hilo.Game{
         public int secondCard;
         // public string GetScore = "hi";
 
+        
+        /// <summary> 
+        /// Constructor (first card could be set to anything, but we have it as 0, second card is set to random)
+        /// </summary>
         public Card()
         {
             firstCard = 0;
@@ -27,12 +34,21 @@ namespace cse210_hilo.Game{
 
         }
 
+        /// <summary> 
+        /// moves the secondCard value to firstCard and picks a new random value for secondCard
+        /// </summary>
         public void DrawCard(){
-            firstCard = secondCard;
-            secondCard = RandomCard();
+            firstCard = secondCard; //apply 2nd to 1st
+            secondCard = RandomCard(); //apply random to 2nd
         }
 
-            bool isodd = false;
+            /* -- Test --
+            bool isodd = false;*/
+        
+        /// <summary>
+        /// Selects a random value from 1 through 15 and returns it.
+        /// </summary>
+        /// <returns>A random value from 1 through 15</returns>
         private int RandomCard(){
             Random random = new Random();
             int value = random.Next(1,15);
@@ -47,7 +63,6 @@ namespace cse210_hilo.Game{
             // See if this is useful:
             // https://www.tutorialsteacher.com/articles/generate-random-numbers-in-csharp
             /*  --  Test --
-            */
             isodd = !isodd;
             if (isodd){
             return 6; // change "6" to the value
@@ -56,6 +71,7 @@ namespace cse210_hilo.Game{
             else{
                 return 5;
             }
+            */
         }
 
     }
