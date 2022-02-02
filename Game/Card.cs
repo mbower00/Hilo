@@ -33,6 +33,15 @@ namespace cse210_hilo.Game{
 
             bool isodd = false;
         private int RandomCard(){
+            Random random = new Random();
+            int value = random.Next(1,15);
+            return value;
+            //this opporation will be called back to the previous RandomCard()
+            //'random' is being randomized to be called our new random
+            // then we can set the int randomcard() to randomly generate a number from 1 to 15
+            // now that it will be called back with that randomly generated number for the first and second card
+            // With those values, it can be awarded or deducted pionts according to if its hi or lo
+
             // Add code here
             // See if this is useful:
             // https://www.tutorialsteacher.com/articles/generate-random-numbers-in-csharp
