@@ -46,16 +46,16 @@ namespace cse210_hilo.Game{
             bool isodd = false;*/
         
         /// <summary>
-        /// Selects a random value from 1 through 15 and returns it.
+        /// Selects a random value from 1 through 13 and returns it.
         /// </summary>
-        /// <returns>A random value from 1 through 15</returns>
+        /// <returns>A random value from 1 through 13</returns>
         private int RandomCard(){
             Random random = new Random();
             int value = random.Next(1,14);
             return value;
             //this opporation will be called back to the previous RandomCard()
             //'random' is being randomized to be called our new random
-            // then we can set the int randomcard() to randomly generate a number from 1 to 15
+            // then we can set the int randomcard() to randomly generate a number from 1 to 13
             // now that it will be called back with that randomly generated number for the first and second card
             // With those values, it can be awarded or deducted pionts according to if its hi or lo
 
