@@ -34,7 +34,7 @@ namespace cse210_hilo.Game{
             bool isodd = false;
         private int RandomCard(){
             Random random = new Random();
-            int value = random.Next(1,15);
+            int value = random.Next(1,14);
             return value;
             //this opporation will be called back to the previous RandomCard()
             //'random' is being randomized to be called our new random
