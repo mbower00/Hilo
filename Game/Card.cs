@@ -1,6 +1,7 @@
 using System;
 
 namespace cse210_hilo.Game{
+    
     public class Card{
         // Director director = new Director();
 
@@ -37,6 +38,7 @@ namespace cse210_hilo.Game{
             // See if this is useful:
             // https://www.tutorialsteacher.com/articles/generate-random-numbers-in-csharp
             /*  --  Test --
+            */
             isodd = !isodd;
             if (isodd){
             return 6; // change "6" to the value
@@ -45,7 +47,6 @@ namespace cse210_hilo.Game{
             else{
                 return 5;
             }
-            */
         }
 
     }

@@ -14,7 +14,9 @@ namespace cse210_hilo.Game
         int score;
         Card card = new Card();
         
-        
+        /// <summary> 
+        /// Constructor
+        /// </summary>
         public Director()
         {
 
@@ -26,12 +28,12 @@ namespace cse210_hilo.Game
         /// </summary>
         public void StartGame()
         {
-            score = 300;
-            while(isPlaying)
+            score = 300;                // set score to 300 to start
+            while(isPlaying)            // repeat while we are playing
             {
-                card.DrawCard();
-                DoOutput();
-                DoUpdate();
+                card.DrawCard();        // move second card value to first and draw a new card for second
+                DoOutput();             // print the first card, gets guess from user, prints the second card
+                DoUpdate();             //
                 if (HasLoser())
                 {
                     isPlaying = false;
@@ -55,8 +57,8 @@ namespace cse210_hilo.Game
         /// </summary>
         public void GetPlayAgain()
         {
-            Console.Write("Do you want to play again? [y/n]");
-            string keepPlaying = Console.ReadLine();
+            Console.Write("Do you want to play again? [y/n] "); //print play again prompt
+            string keepPlaying = Console.ReadLine(); // 
             isPlaying = (keepPlaying == "y");
             Console.WriteLine("");
 
@@ -67,14 +69,14 @@ namespace cse210_hilo.Game
         /// </summary>
         public void DoOutput()
         {
-            if (!isPlaying)
+            if (!isPlaying) // break out if we're not gaming
             {
                 return;
             }
-
-            Console.WriteLine($"The first card is: {card.firstCard}");
-            GetGuess();
-            Console.WriteLine($"The next card was: {card.secondCard}");
+            
+            Console.WriteLine($"The first card is: {card.firstCard}"); // print the first card
+            GetGuess(); // gets guess from user
+            Console.WriteLine($"The next card was: {card.secondCard}"); //prints the second card
 
         }
         
@@ -83,30 +85,34 @@ namespace cse210_hilo.Game
         /// </summary>
         public bool HasLoser()
         {
-            if (score <= 0)
+            if (score <= 0) // there is a loser if the socre if less than or equal to zero
             {
                 return true;
             }
-            else{
+            else{ // otherwise, there is no loser
                 return false;
             }
         }
         
         /// <summary> 
-        /// updates score and displays new score
+        /// updates score, display  and displays new score
         /// </summary>
         public void DoUpdate()
         {
-            if (card.firstCard < card.secondCard && guessNextCard == "h" || card.firstCard > card.secondCard && guessNextCard == "l"){
+            if (card.firstCard < card.secondCard && guessNextCard == "h" || card.firstCard > card.secondCard && guessNextCard == "l"){ // if correct guess
                 score += 100;
+                Console.WriteLine("You got it! Score +100");
             }
-            else if (card.firstCard == card.secondCard){  //CONSIDER CHANGING ACCORDING TO SAME CARD RULES
-                score += 0;
+            else if (card.firstCard == card.secondCard){  //if same card
+                score += 50;
+                Console.WriteLine("It's a fluke! Score +50");
             }
-            else{
+            else{ //if incorrect guess
                 score -= 75;
+                Console.WriteLine("Wrong! Score -75");
             }
-            Console.WriteLine($"Your new score is: {score} ");
+
+            Console.WriteLine($"Your new score is: {score} "); //print score
         }
 
         
