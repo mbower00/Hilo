@@ -15,20 +15,22 @@ https://discord.gg/htj2yhe2
 
 Object: Director
 Responsibility
-Directing the game, and displaying the game, and holding score
+Directing the game, and displaying the game, keeping/changing score
 Behaviors
 -Starts game
--Does updates (Receive user input)
+-Does updates (Receive user input, update score)
 -Does outputs (Displays information and announces the card)
--State
+State
 -Game continue? [y/n]
 -Guess next card [h/l]
+-Determine score
+-Determine if higher or lower
 
 Class Director
 -DoUpdate(): void
 -StartGame(): void
 -GetGuess(): void
--GetPlayAgain(): bool
+-GetPlayAgain(): void
 -DoOutput(): void
 -HasLoser(): bool
 
@@ -37,11 +39,10 @@ Class Director
 
 Object: Card
 Responsibility:
-modifies player's score, and card value
+keeps track of cards, drawing a new card
 Behaviors:
 -Picks random card value
--Determine score
--Determine if higher or lower
+-keeps track of fist and second card
 State:
 -first Card Number
 -second card number
